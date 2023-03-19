@@ -1,0 +1,1 @@
+This playbook installs java on slave1 and mysql on slave2.

@@ -1,0 +1,13 @@
+---
+- name: create text file on slave1
+  hosts: slave1
+  become: true
+  tasks:
+  - name: creating 1.txt in /tmp
+    script: text_file.sh
+- name: create text file on slave2
+  hosts: slave2
+  become: true
+  tasks:
+  - name: creating 1.txt in /tmp
+    script: text_file.sh

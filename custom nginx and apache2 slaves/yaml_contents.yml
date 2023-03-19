@@ -1,0 +1,17 @@
+---
+- name: slave1
+  hosts: slave1
+  become: true
+  tasks:
+  - name: install apache2 on slave1
+    apt: name=apache2 state=latest
+  - name: copy custom index.html
+    copy: src=/tmp/apache2/index.html dest=/var/www/html/
+- name: slave2
+  hosts: slave2
+  become: true
+  tasks:
+  - name: install nginx on slave2
+    apt: name=nginx state=latest
+  - name: copy custom index.html
+    copy: src=/tmp/nginx/index.html dest=/var/www/html/
